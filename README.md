@@ -10,4 +10,4 @@ npm install
 # 启动服务
 npm run dev
 ```
-该库[文字教程](https://github.com/umbrella22/WebpackLearnOfVue)
+该库[文字教程](https://umbrella22.github.io/WebpackLearnOfVue-site/)
