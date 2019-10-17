@@ -5,7 +5,7 @@ const webpackbar = require('webpackbar')
 module.exports = {
     mode: 'development',
     entry: {
-        vendor: ['axios', 'element-ui', 'vue', 'vue-router', 'echarts']
+        vendor: ['element-ui', 'vue', 'echarts']
     },
     output: {
         filename: '[name].dll.js',
