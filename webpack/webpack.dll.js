@@ -9,14 +9,14 @@ module.exports = {
     },
     output: {
         filename: '[name].dll.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         library: '_dll_[name]',
     },
     plugins: [
         new CleanWebpackPlugin(),//clean dist
         new webpack.DllPlugin({
             name: '_dll_[name]',
-            path: path.join(__dirname, 'dist', '[name].manifest.json'),
+            path: path.join(__dirname, '../dist', '[name].manifest.json'),
         }),
         new webpackbar({
             name: "抽取依赖中",
