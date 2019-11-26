@@ -68,7 +68,8 @@ exports.cssLoaders = function (options) {
 exports.styleLoaders = function (options) {
     const output = []
     const loaders = exports.cssLoaders(options)
-    console.log(JSON.stringify(loaders))
+
+    
     for (const extension in loaders) {
         const loader = loaders[extension]
         output.push({

@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
     if (!require('../config/index').build.cdn) {
         require('element-ui/lib/theme-chalk/index.css')
     }
-}else{
+} else {
     require('element-ui/lib/theme-chalk/index.css')
 }
 
