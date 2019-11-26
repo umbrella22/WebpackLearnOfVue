@@ -129,7 +129,7 @@ const options = merge(common, {
 // 当config中对应项为true时，启用打包分析
 if (config.build.bundleAnalyzerReport) {
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-    prodWebpackConf.plugins.push(new BundleAnalyzerPlugin())
+    options.plugins.push(new BundleAnalyzerPlugin())
 }
 // 当config中对应项为true时，启用cdn加速
 if (config.build.cdn) {

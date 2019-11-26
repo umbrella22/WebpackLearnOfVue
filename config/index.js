@@ -20,6 +20,7 @@ module.exports = {
         // 是否使用系统提示弹出错误简略信息
         notifyOnErrors: true,
         poll: false,
+        cssSourceMap: true
     },
     //  对应build环境的快捷设置
     build: {

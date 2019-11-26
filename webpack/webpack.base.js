@@ -4,6 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpackbar = require('webpackbar')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -63,6 +64,7 @@ module.exports = {
         new VueLoaderPlugin(),
         new webpackbar({
             name: "示例",
-        })
+        }),
+        new HardSourceWebpackPlugin()
     ],
 };
