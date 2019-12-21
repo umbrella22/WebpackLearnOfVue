@@ -134,7 +134,6 @@ if (config.build.bundleAnalyzerReport) {
 // 当config中对应项为true时，启用cdn加速
 if (config.build.cdn) {
     options.externals = config.build.NeedCdnModuleName
-    console.log(options.externals)
     const WebpackCdnPlugin = require('webpack-cdn-plugin');
     options.plugins.push(new WebpackCdnPlugin({
         modules: config.build.NeedCdnModuleAddress
