@@ -32,7 +32,7 @@ module.exports = {
         assetsSubDirectory: 'static',
         // 针对vue，如果你想通过双击index打开你的页面的话
         // 你就需要更改为'./'即可
-        assetsPublicPath: '/',
+        assetsPublicPath: './',
 
         /**
          * 打包时是否启用map
@@ -48,7 +48,7 @@ module.exports = {
         // 此处配置可使用插件自动配置需要cdn加速的模块
         // 你可能需要执行 npm i webpack-cdn-plugin -D 命令来安装这个依赖
         // 因为本包中可能会不带这项依赖，毕竟不是每个人都需要
-        cdn: true,
+        cdn: false,
         // 需要说明的是，这个里，用于配置需要被webpack忽略的依赖包名
         // 为了能够看出差距，我这里就加入了elementui和echarts两个很大的依赖包能够看出非常大的差距
         NeedCdnModuleName: {

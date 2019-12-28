@@ -105,7 +105,7 @@ const options = merge(common, {
             filename: utils.assetsPath('css/[name].css'),
             chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css')
         }),
-        new webpack.HashedModuleIdsPlugin(),
+        // new webpack.HashedModuleIdsPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.production.html',
