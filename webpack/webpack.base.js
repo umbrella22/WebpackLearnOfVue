@@ -1,10 +1,13 @@
 'use strict'
+const os = require("os")
 const path = require('path');
 const utils = require('./utils')
 const config = require('../config')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpackbar = require('webpackbar')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const HappyPack = require("happypack")
+const HappyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -35,7 +38,7 @@ module.exports = {
         },
         {
             test: /\.js$/,
-            loader: 'babel-loader?cacheDirectory=true',
+            use: 'happypack/loader?id=HappyRendererBabel',
             include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
         },
         {
@@ -65,6 +68,16 @@ module.exports = {
         new webpackbar({
             name: "示例",
         }),
-        new HardSourceWebpackPlugin()
+        new HardSourceWebpackPlugin(),
+        new HappyPack({
+            id: 'HappyRendererBabel',
+            loaders: [{
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true
+                }
+            }],
+            threadPool: HappyThreadPool
+        }),
     ],
 };
