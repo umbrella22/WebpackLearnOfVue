@@ -46,6 +46,7 @@ module.exports = {
             use: [{
                 loader: 'url-loader',
                 options: {
+                    esModule: false,
                     limit: 8192,
                     name: utils.assetsPath('image/[name]-[hash:8].[ext]')
                 }
@@ -56,6 +57,7 @@ module.exports = {
             use: [{
                 loader: 'url-loader',
                 options: {
+                    esModule: false,
                     limit: 8192,
                     name: utils.assetsPath('fonts/[name]-[hash:8].[ext]')
                 }
