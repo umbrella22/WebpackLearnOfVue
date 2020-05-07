@@ -165,4 +165,10 @@ if (config.build.gzip) {
     })
     )
 }
+if(config.build.AutoUpload){
+    const AutoUploadPlugin = require("webpack-autoupload-plugin")
+    options.plugins.push(
+        new AutoUploadPlugin(config.build.UploadServer)
+    )
+}
 module.exports = options;

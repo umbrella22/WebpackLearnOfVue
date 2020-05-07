@@ -31,5 +31,6 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     }
 
     console.log(chalk.cyan(' 打包成功\n'))
+    if(config.build.AutoUpload) console.log(chalk.cyan(' 自动上传运行中...\n'))
   })
 })
