@@ -2,6 +2,11 @@
 <template>
   <div>
     <el-tag>yoooo</el-tag>
+    <div class="text-box">
+      <div class="text">
+        123
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,4 +27,10 @@ export default {
 
 </script>
 <style rel='stylesheet/scss' lang='scss' scoped>
+.text-box{
+  color: #333;
+  .text{
+    font-size: 26px;
+  }
+}
 </style>
