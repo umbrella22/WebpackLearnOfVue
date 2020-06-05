@@ -34,7 +34,19 @@ module.exports = {
     module: {
         rules: [{
             test: /\.vue$/,
-            use: 'vue-loader'
+            use: [{
+                loader: 'cache-loader',
+                options: {
+                    cacheDirectory: 'node_modules/.cache/vue-loader',
+                    cacheIdentifier: '7270960a'
+                }
+            }, {
+                loader: 'vue-loader',
+                options: {
+                    cacheDirectory: 'node_modules/.cache/vue-loader',
+                    cacheIdentifier: '7270960a'
+                }
+            }]
         },
         {
             test: /\.js$/,

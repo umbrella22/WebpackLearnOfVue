@@ -71,10 +71,22 @@ const options = merge(common, {
                     warnings: false,
                     // 去除打印
                     compress: {
+                        hoist_funs: false,
+                        hoist_props: false,
+                        hoist_vars: false,
+                        inline: false,
+                        loops: false,
+                        dead_code: true,
+                        booleans: true,
+                        if_return: true,
                         warnings: false,
                         drop_console: true,
                         drop_debugger: true,
                         pure_funcs: ['console.log']
+                    },
+
+                    mangle: {
+                        safari10: true
                     },
                     // 去除注释，当设置为true时，会保留注释
                     output: {
@@ -165,7 +177,7 @@ if (config.build.gzip) {
     })
     )
 }
-if(config.build.AutoUpload){
+if (config.build.AutoUpload) {
     const AutoUploadPlugin = require("webpack-autoupload-plugin")
     options.plugins.push(
         new AutoUploadPlugin(config.build.UploadServer)
