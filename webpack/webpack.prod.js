@@ -1,7 +1,7 @@
 'use strict'
 const webpack = require('webpack');
 const common = require('./webpack.base.js');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
