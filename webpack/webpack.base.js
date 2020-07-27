@@ -5,9 +5,8 @@ const utils = require('./utils')
 const config = require('../config')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpackbar = require('webpackbar')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const HappyPack = require("happypack")
-const HappyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
+const HappyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length > 4 ? 4 : os.cpus().length })
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -76,7 +75,6 @@ module.exports = {
         new webpackbar({
             name: "示例",
         }),
-        new HardSourceWebpackPlugin(),
         new HappyPack({
             id: 'HappyRendererBabel',
             loaders: [{
