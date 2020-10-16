@@ -4,7 +4,6 @@ const utils = require('./utils')
 const config = require('../config')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpackbar = require('webpackbar')
-// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -26,19 +25,26 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             '@': resolve('src'),
-            "path": 'path-browserify' 
         }
     },
     module: {
         rules: [{
             test: /\.vue$/,
-            use: 'vue-loader'
+            use: {
+                loader: 'vue-loader',
+                options: {
+                    cacheDirectory: resolve('node_modules/.cache/vue-loader'),
+                    cacheIdentifier: '7270960a'
+                }
+            }
         },
         {
             test: /\.js$/,
-            loader: 'babel-loader',
-            options: {
-                cacheDirectory: true
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true
+                }
             },
             include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
         },
@@ -47,6 +53,7 @@ module.exports = {
             use: [{
                 loader: 'url-loader',
                 options: {
+                    esModule: false,
                     limit: 8192,
                     name: utils.assetsPath('image/[name]-[hash:8].[ext]')
                 }
@@ -57,6 +64,7 @@ module.exports = {
             use: [{
                 loader: 'url-loader',
                 options: {
+                    esModule: false,
                     limit: 8192,
                     name: utils.assetsPath('fonts/[name]-[hash:8].[ext]')
                 }
@@ -69,6 +77,5 @@ module.exports = {
         new webpackbar({
             name: "示例",
         }),
-        // new HardSourceWebpackPlugin()
     ],
 };

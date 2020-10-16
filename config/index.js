@@ -9,7 +9,7 @@ module.exports = {
         // 使用webpack进行端口代理，一般是用于跨域
         proxyTable: {},
         // 使用什么devtools
-        devtool: 'cheap-module-eval-source-map',
+        devtool: 'eval-source-map',
         // 这是设置的是局域网和本地都可以访问
         host: '0.0.0.0',
         // 端口号
@@ -81,6 +81,16 @@ module.exports = {
         // 因为本包中可能会不带这项依赖，毕竟不是每个人都需要
         gzip: false,
         // 这里设置需要被压缩的文件后缀默认是只压缩css和js
-        productionGzipExtensions: ['js', 'css']
+        productionGzipExtensions: ['js', 'css'],
+        // 是否启用自动上传到服务器
+        AutoUpload: false,
+        // 插件配置信息
+        UploadServer: {
+            ip: '',
+            user: '',
+            password: '',
+            src: path.resolve(__dirname, '../dist'),
+            dist: '/home/dist/'
+        }
     }
 }

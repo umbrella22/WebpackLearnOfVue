@@ -1,7 +1,7 @@
 'use strict'
 const webpack = require('webpack');
 const common = require('./webpack.base.js');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
@@ -62,19 +62,26 @@ const options = merge(common, {
                 // 将注释提取到一个文件中
                 // 本实例中默认开启，但是现在关闭了它
                 extractComments: false,
-                // 是否开启缓存
-                // 本实例中默认开启，但是现在关闭了它
-                cache: false,
-                // 是否开启映射
-                sourceMap: config.build.productionSourceMap,
                 terserOptions: {
                     warnings: false,
                     // 去除打印
                     compress: {
+                        hoist_funs: false,
+                        hoist_props: false,
+                        hoist_vars: false,
+                        inline: false,
+                        loops: false,
+                        dead_code: true,
+                        booleans: true,
+                        if_return: true,
                         warnings: false,
                         drop_console: true,
                         drop_debugger: true,
                         pure_funcs: ['console.log']
+                    },
+
+                    mangle: {
+                        safari10: true
                     },
                     // 去除注释，当设置为true时，会保留注释
                     output: {
@@ -119,12 +126,6 @@ const options = merge(common, {
             }
         }),
     ],
-    stats: {
-        // 显示所有模块
-        maxModules: Infinity,
-        // 显示模块为何被引入
-        reasons: true,
-    }
 });
 // 当config中对应项为true时，启用打包分析
 if (config.build.bundleAnalyzerReport) {
@@ -163,6 +164,12 @@ if (config.build.gzip) {
         // 这这里并不推荐删除源文件,因为需要照顾到不支持gzip的浏览器
         deleteOriginalAssets: false,
     })
+    )
+}
+if (config.build.AutoUpload) {
+    const AutoUploadPlugin = require("webpack-autoupload-plugin")
+    options.plugins.push(
+        new AutoUploadPlugin(config.build.UploadServer)
     )
 }
 module.exports = options;

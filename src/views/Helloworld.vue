@@ -1,25 +1,20 @@
 <!--  -->
 <template>
   <div>
-    <el-tag>yoooo</el-tag>
+    <el-button>这是一个按钮</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  data:()=> ({}),
+  data: () => ({}),
 
   components: {},
 
-  mounted() {
-      console.log("测试控制台打印")
-      console.log(process.env.api)
-      // 添加注释
-  },
+  mounted() {},
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
 <style rel='stylesheet/scss' lang='scss' scoped>
 </style>
