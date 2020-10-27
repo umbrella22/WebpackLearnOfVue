@@ -7,5 +7,4 @@ psd/
 .cache/
 package-lock.json
 .project
-yarn.lock
 .vscode/launch.json
