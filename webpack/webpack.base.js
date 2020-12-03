@@ -42,9 +42,9 @@ module.exports = {
             test: /\.js$/,
             use: {
                 loader: 'babel-loader',
-                options: {
-                    cacheDirectory: true
-                }
+                // options: {
+                //     cacheDirectory: true
+                // }
             },
             include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
         },
