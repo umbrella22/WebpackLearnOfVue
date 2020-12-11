@@ -1,19 +1,29 @@
 <!--  -->
 <template>
   <div>
-    <el-button>这是一个按钮</el-button>
+    <div>欢迎来到vue3全家桶+webpack5，嘛虽然有点简单。。不过只能慢慢来了</div>
+    <div>这里是vuex的getter得到的值：{{ templateData }}</div>
+    <div @click="setVuexData">点击一下我，就会修改上面的值啦~</div>
   </div>
 </template>
 
 <script>
+// 这里使用的optionAPI和原来的vue2完全没有任何区别，这里仅仅只是做展示
+import { mapGetters } from "vuex";
 export default {
   data: () => ({}),
-
+  computed: {
+    ...mapGetters(["templateData"]),
+  },
   components: {},
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    setVuexData() {
+      this.$store.dispatch("testAction", "已经修改值");
+    },
+  },
 };
 </script>
 <style rel='stylesheet/scss' lang='scss' scoped>

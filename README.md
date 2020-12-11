@@ -1,5 +1,5 @@
 # 简介
-> 该库包含一个完整的VueOfWebpack4配置代码和注释
+> 该库包含一个完整的Vue3OfWebpack5配置代码和注释
 
 ```bash
 # 如何使用？

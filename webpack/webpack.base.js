@@ -2,7 +2,7 @@
 const path = require('path');
 const utils = require('./utils')
 const config = require('../config')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader-v16').VueLoaderPlugin
 const webpackbar = require('webpackbar')
 
 function resolve(dir) {
@@ -30,21 +30,29 @@ module.exports = {
     module: {
         rules: [{
             test: /\.vue$/,
-            use: {
-                loader: 'vue-loader',
+            use: [{
+                loader: 'cache-loader',
                 options: {
                     cacheDirectory: resolve('node_modules/.cache/vue-loader'),
-                    cacheIdentifier: '7270960a'
+                    cacheIdentifier: '7270960a',
                 }
-            }
+            }, {
+                loader: 'vue-loader-v16',
+                options: {
+                    cacheDirectory: resolve('node_modules/.cache/vue-loader'),
+                    cacheIdentifier: '7270960a',
+                    babelParserPlugins: [
+                        'jsx',
+                        'classProperties',
+                        'decorators-legacy'
+                    ]
+                }
+            }]
         },
         {
             test: /\.js$/,
             use: {
                 loader: 'babel-loader',
-                // options: {
-                //     cacheDirectory: true
-                // }
             },
             include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
         },

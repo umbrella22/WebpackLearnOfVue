@@ -51,31 +51,9 @@ module.exports = {
         cdn: false,
         // 需要说明的是，这个里，用于配置需要被webpack忽略的依赖包名
         // 为了能够看出差距，我这里就加入了elementui和echarts两个很大的依赖包能够看出非常大的差距
-        NeedCdnModuleName: {
-            'vue': 'Vue',
-            'echarts': 'echarts',
-            'vue-router': 'VueRouter',
-            'element-ui': 'ELEMENT',
-        },
+        NeedCdnModuleName: {},
         // 这里则是被webpack忽略之后，加载cdn
-        NeedCdnModuleAddress: [{
-            name: 'vue',
-            var: 'Vue',
-            path: 'dist/vue.runtime.min.js',
-        }, {
-            name: 'vue-router',
-            var: 'VueRouter',
-            path: 'dist/vue-router.min.js',
-        }, {
-            name: 'element-ui',
-            var: 'ELEMENT',
-            path: 'lib/index.js',
-            style: 'lib/theme-chalk/index.css'
-        }, {
-            name: 'echarts',
-            var: 'echarts',
-            path: 'dist/echarts.common.min.js',
-        }],
+        NeedCdnModuleAddress: [],
         // 此处配置是是否使用gzip功能对代码进行高强度的压缩(值得注意的是gzip功能需要nginx做出对应的配置,谨慎开启)
         // 你可能需要执行 npm i compression-webpack-plugin -D 命令来安装这个依赖
         // 因为本包中可能会不带这项依赖，毕竟不是每个人都需要
