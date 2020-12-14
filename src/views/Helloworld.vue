@@ -7,10 +7,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // 这里使用的optionAPI和原来的vue2完全没有任何区别，这里仅仅只是做展示
-import { mapGetters } from "vuex";
-export default {
+import { mapGetters,useStore } from "vuex";
+import { defineComponent } from "vue";
+export default defineComponent({
   data: () => ({}),
   computed: {
     ...mapGetters(["templateData"]),
@@ -24,7 +25,7 @@ export default {
       this.$store.dispatch("testAction", "已经修改值");
     },
   },
-};
+});
 </script>
 <style rel='stylesheet/scss' lang='scss' scoped>
 </style>

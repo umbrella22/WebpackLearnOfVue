@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import hw from '@/views/Helloworld'
+import hw from '@/views/Helloworld.vue'
 
 const routes = [
     {

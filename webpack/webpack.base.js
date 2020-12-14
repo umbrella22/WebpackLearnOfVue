@@ -11,7 +11,7 @@ function resolve(dir) {
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        app: './src/main.js'
+        app: './src/main.ts'
     },
     output: {
         filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
@@ -22,7 +22,7 @@ module.exports = {
             : config.dev.assetsPublicPath
     },
     resolve: {
-        extensions: ['.js', '.vue', '.json'],
+        extensions: ['.ts', '.js', '.vue', '.json'],
         alias: {
             '@': resolve('src'),
         }
