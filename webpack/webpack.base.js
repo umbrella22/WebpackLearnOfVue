@@ -41,6 +41,9 @@ module.exports = {
                 options: {
                     cacheDirectory: resolve('node_modules/.cache/vue-loader'),
                     cacheIdentifier: '7270960a',
+                    transformAssetUrls:{
+
+                    },
                     babelParserPlugins: [
                         'jsx',
                         'classProperties',
