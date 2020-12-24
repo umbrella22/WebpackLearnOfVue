@@ -21,7 +21,6 @@
         },
         "typeRoots": [
             "node_modules/@types",
-            "customTypes/*"
         ],
         "lib": [
             "esnext",
@@ -31,9 +30,8 @@
         ]
     },
     "include": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "src/**/*.vue"
+        "src/**/*",
+        "customTypes/*"
     ],
     "exclude": [
         "node_modules"

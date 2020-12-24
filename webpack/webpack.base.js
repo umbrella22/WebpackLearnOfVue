@@ -2,8 +2,9 @@
 const path = require('path');
 const utils = require('./utils')
 const config = require('../config')
-const VueLoaderPlugin = require('vue-loader-v16').VueLoaderPlugin
-const webpackbar = require('webpackbar')
+const { VueLoaderPlugin } = require('vue-loader')
+const webpackbar = require('webpackbar');
+const webpack = require('webpack');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -37,13 +38,10 @@ module.exports = {
                     cacheIdentifier: '7270960a',
                 }
             }, {
-                loader: 'vue-loader-v16',
+                loader: 'vue-loader',
                 options: {
                     cacheDirectory: resolve('node_modules/.cache/vue-loader'),
                     cacheIdentifier: '7270960a',
-                    transformAssetUrls:{
-
-                    },
                     babelParserPlugins: [
                         'jsx',
                         'classProperties',
@@ -88,5 +86,11 @@ module.exports = {
         new webpackbar({
             name: "示例",
         }),
+        new webpack.DefinePlugin({
+            '__VUE_OPTIONS_API__': true,
+            '__VUE_PROD_DEVTOOLS__': process.env.NODE_ENV === 'production'
+                ? config.build.openDevTools
+                : config.dev.openDevTools
+        })
     ],
 };

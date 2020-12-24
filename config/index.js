@@ -20,12 +20,15 @@ module.exports = {
         // 是否使用系统提示弹出错误简略信息
         notifyOnErrors: true,
         poll: false,
-        cssSourceMap: true
+        cssSourceMap: true,
+        openDevTools: true
     },
     //  对应build环境的快捷设置
     build: {
         // 模板index
         index: path.resolve(__dirname, '../dist/index.html'),
+        // 是否允许被devTools插件调试
+        openDevTools: false,
 
         // 此处决定打包的文件夹
         assetsRoot: path.resolve(__dirname, '../dist'),
