@@ -9,22 +9,31 @@
 
 <script lang="ts">
 // 这里使用的optionAPI和原来的vue2完全没有任何区别，这里仅仅只是做展示
-import { mapGetters,useStore } from "vuex";
-import { defineComponent } from "vue";
+import { mapGetters, useStore } from "vuex";
+import { computed, defineComponent } from "vue";
+
 export default defineComponent({
-  data: () => ({}),
-  computed: {
-    ...mapGetters(["templateData"]),
+  setup() {
+    const store = useStore();
+    return {
+      templateData: computed(() => store.getters.templateData),
+      setVuexData: () => store.dispatch("testAction", "已经修改值"),
+    };
   },
-  components: {},
 
-  mounted() {},
+  // data: () => ({}),
+  // computed: {
+  //   ...mapGetters(["templateData"]),
+  // },
+  // components: {},
 
-  methods: {
-    setVuexData() {
-      this.$store.dispatch("testAction", "已经修改值");
-    },
-  },
+  // mounted() {},
+
+  // methods: {
+  //   setVuexData() {
+  //     this.$store.dispatch("testAction", "已经修改值");
+  //   },
+  // },
 });
 </script>
 <style rel='stylesheet/scss' lang='scss' scoped>
