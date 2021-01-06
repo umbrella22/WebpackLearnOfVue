@@ -1,5 +1,5 @@
 const getters = {
-    templateData: status => status.template.testData
+    templateData: (status: any) => status.template.testData
 }
 
 export default getters

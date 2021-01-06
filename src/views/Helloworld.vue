@@ -20,20 +20,6 @@ export default defineComponent({
       setVuexData: () => store.dispatch("testAction", "已经修改值"),
     };
   },
-
-  // data: () => ({}),
-  // computed: {
-  //   ...mapGetters(["templateData"]),
-  // },
-  // components: {},
-
-  // mounted() {},
-
-  // methods: {
-  //   setVuexData() {
-  //     this.$store.dispatch("testAction", "已经修改值");
-  //   },
-  // },
 });
 </script>
 <style rel='stylesheet/scss' lang='scss' scoped>
