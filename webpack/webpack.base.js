@@ -5,8 +5,6 @@ const utils = require('./utils')
 const config = require('../config')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpackbar = require('webpackbar')
-const HappyPack = require("happypack")
-const HappyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length > 4 ? 4 : os.cpus().length })
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -43,7 +41,12 @@ module.exports = {
         },
         {
             test: /\.js$/,
-            use: 'happypack/loader?id=HappyRendererBabel',
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true
+                }
+            },
             include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
         },
         {
@@ -74,16 +77,6 @@ module.exports = {
         new VueLoaderPlugin(),
         new webpackbar({
             name: "示例",
-        }),
-        new HappyPack({
-            id: 'HappyRendererBabel',
-            loaders: [{
-                loader: 'babel-loader',
-                options: {
-                    cacheDirectory: true
-                }
-            }],
-            threadPool: HappyThreadPool
         }),
     ],
 };
