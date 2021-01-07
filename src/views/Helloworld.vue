@@ -13,12 +13,27 @@ import { mapGetters, useStore } from "vuex";
 import { computed, defineComponent } from "vue";
 
 export default defineComponent({
-  setup() {
-    const store = useStore();
+  // 这是使用了组合式api
+
+  // setup() {
+  //   const store = useStore();
+  //   return {
+  //     templateData: computed(() => store.getters.templateData),
+  //     setVuexData: () => store.dispatch("testAction", "已经修改值"),
+  //   };
+  // },
+  data() {
     return {
-      templateData: computed(() => store.getters.templateData),
-      setVuexData: () => store.dispatch("testAction", "已经修改值"),
+      store: useStore(),
     };
+  },
+  computed: {
+    ...mapGetters(["templateData"]),
+  },
+  methods: {
+    setVuexData() {
+      this.store.dispatch("testAction", "已经修改值");
+    },
   },
 });
 </script>
