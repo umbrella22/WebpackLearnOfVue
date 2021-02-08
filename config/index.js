@@ -42,7 +42,6 @@ module.exports = {
          */
 
         productionSourceMap: false,
-        devtool: '#source-map',
 
         // 此处配置是是否启动webpack打包检测你可以通过使用以下命令进行启动
         // `npm run build --report`

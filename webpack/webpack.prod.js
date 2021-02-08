@@ -13,7 +13,6 @@ const env = require('../config/prod.env')
 
 const options = merge(common, {
     mode: "production",
-    devtool: config.build.productionSourceMap ? config.build.devtool : false,
     output: {
         path: config.build.assetsRoot,
     },
