@@ -51,25 +51,24 @@ module.exports = {
         },
         {
             test: /\.(gif|png|jpe?g|svg)$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    esModule: false,
-                    limit: 8192,
-                    name: utils.assetsPath('image/[name]-[hash:8].[ext]')
-                }
-            }]
+            type: "asset/resource",
+            generator: {
+                filename: 'imgs/[name]--[hash].[ext]'
+            }
         },
         {
-            test: /\.(woff|woff2|eot|ttf|otf)$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    esModule: false,
-                    limit: 8192,
-                    name: utils.assetsPath('fonts/[name]-[hash:8].[ext]')
-                }
-            }]
+            test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+            type: "asset/resource",
+            generator: {
+                filename: 'media/[name]--[hash].[ext]'
+            }
+        },
+        {
+            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+            type: "asset/resource",
+            generator: {
+                filename: 'fonts/[name]--[hash].[ext]'
+            }
         }
         ]
     },
