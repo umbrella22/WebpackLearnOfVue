@@ -1,14 +1,18 @@
+import type { Commit } from 'vuex'
+interface StateType {
+    testData: string
+}
 const template = {
     state: {
         testData: ""
     },
     mutations: {
-        TEST_COMMIT: (state, data) => {
+        TEST_COMMIT: (state: StateType, data: string) => {
             state.testData = data
         }
     },
     actions: {
-        testAction({ commit }, data) {
+        TEST_ACTION({ commit }: { commit: Commit }, data: string) {
             commit("TEST_COMMIT", data)
         }
     }

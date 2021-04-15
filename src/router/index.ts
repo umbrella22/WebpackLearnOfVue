@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import hw from '@/views/Helloworld.vue'
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
         name: 'hw',
