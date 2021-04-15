@@ -5,7 +5,6 @@ const common = require('./webpack.base.js');
 const config = require("../config")
 const utils = require('./utils')
 const dev = require('../config/dev.env')
-const package = require('../package.json')
 
 module.exports = merge(common, {
     mode: "development",

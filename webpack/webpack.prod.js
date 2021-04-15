@@ -13,9 +13,6 @@ const env = require('../config/prod.env')
 
 const options = merge(common, {
     mode: "production",
-    output: {
-        path: config.build.assetsRoot,
-    },
     externals: {},
     module: {
         // 将之前的rules数组直接替换成下面的样子
