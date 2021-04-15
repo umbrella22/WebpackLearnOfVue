@@ -32,7 +32,7 @@ export default defineComponent({
   },
   methods: {
     setVuexData() {
-      this.store.dispatch("testAction", "已经修改值");
+      this.store.dispatch("TEST_ACTION", "已经修改值");
     },
   },
 });
