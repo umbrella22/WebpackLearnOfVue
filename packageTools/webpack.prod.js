@@ -111,7 +111,7 @@ const options = merge(common, {
         // new webpack.HashedModuleIdsPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: 'src/index.production.html',
+            template: 'src/index.html',
             inject: 'body',
             chunksSortMode: 'none',
             minify: {

@@ -21,7 +21,9 @@ module.exports = {
         notifyOnErrors: true,
         poll: false,
         cssSourceMap: true,
-        openDevTools: true
+        openDevTools: true,
+        // 是否使用vite代替webpack
+        useVite: true
     },
     //  对应build环境的快捷设置
     build: {

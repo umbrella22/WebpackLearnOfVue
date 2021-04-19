@@ -4,10 +4,14 @@ const webpack = require('webpack')
 const Portfinder = require("portfinder")
 const WebpackDevServer = require('webpack-dev-server')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const { createServer } = require('vite')
+
 
 const utils = require('./utils')
 const config = require('../config')
 const webpackConfig = require('./webpack.dev')
+const viteConifg = require("./vite.config")
+
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -37,28 +41,46 @@ const DevServerConfig = {
         poll: config.dev.poll,
     }
 }
+const viteDevConfig = {
+    server: {
+        // 设置webpack热加载地址
+        host: HOST || config.dev.host,
+        // 设置是否自动打开浏览器
+        open: config.dev.autoOpenBrowser,
+        // 从config文件中读取端口代理设置
+        proxy: config.dev.proxyTable,
+    }
+
+}
 
 function statr() {
     Portfinder.basePort = config.dev.port || PORT
-    Portfinder.getPort((err, port) => {
+    Portfinder.getPort(async (err, port) => {
         if (err) {
             console.log(chalk.red('  启动失败，端口占用\n'))
             console.log('PortError:', err)
             process.exit(1)
         } else {
-            webpackConfig.plugins.push(new FriendlyErrorsPlugin({
-                compilationSuccessInfo: {
-                    messages: [`您的项目已成功启动`],
-                    notes: [`本机访问请在vscode的终端中按住左ctrl键点击: http://127.0.0.1:${port} \n `, `局域网访问地址: http://${utils.getNetworkIp()}:${port}`],
-                },
-                onErrors: config.dev.notifyOnErrors
-                    ? utils.createNotifierCallback()
-                    : undefined
-            }))
-            WebpackDevServer.addDevServerEntrypoints(webpackConfig, DevServerConfig);
-            const compiler = webpack(webpackConfig)
-            const server = new WebpackDevServer(compiler, DevServerConfig)
-            server.listen(port)
+            if (config.dev.useVite) {
+                const viteAllConfig = Object.assign(viteConifg, viteDevConfig)
+                const server = await createServer(viteAllConfig)
+                server.listen(port)
+            } else {
+                webpackConfig.plugins.push(new FriendlyErrorsPlugin({
+                    compilationSuccessInfo: {
+                        messages: [`您的项目已成功启动`],
+                        notes: [`本机访问请在vscode的终端中按住左ctrl键点击: http://127.0.0.1:${port} \n `, `局域网访问地址: http://${utils.getNetworkIp()}:${port}`],
+                    },
+                    onErrors: config.dev.notifyOnErrors
+                        ? utils.createNotifierCallback()
+                        : undefined
+                }))
+                WebpackDevServer.addDevServerEntrypoints(webpackConfig, DevServerConfig);
+                const compiler = webpack(webpackConfig)
+                const server = new WebpackDevServer(compiler, DevServerConfig)
+                server.listen(port)
+            }
+
         }
     })
 }
