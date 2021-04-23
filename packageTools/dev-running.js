@@ -63,6 +63,7 @@ function statr() {
         } else {
             if (config.dev.useVite) {
                 const viteAllConfig = Object.assign(viteConifg, viteDevConfig)
+                viteAllConfig.server.port = port
                 const server = await createServer(viteAllConfig)
                 server.listen(port)
             } else {
