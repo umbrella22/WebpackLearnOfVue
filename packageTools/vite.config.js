@@ -14,6 +14,7 @@ const config = defineConfig({
     root,
     define: {
         'process.env': JSON.stringify(dev),
+        'process.tools': JSON.stringify({ mode: 'vite' })
     },
 
     resolve: {

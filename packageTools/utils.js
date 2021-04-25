@@ -86,14 +86,16 @@ exports.createNotifierCallback = () => {
     const notifier = require('node-notifier')
 
     return (severity, errors) => {
+
         if (severity !== 'error') return
 
         const error = errors[0]
+        console.log(error.name||error.webpackError)
         const filename = error.file && error.file.split('!').pop()
         // 这里是设置当出现错误时，给你的，标题，错误信息，错误文件地址，以及图标
         notifier.notify({
             title: packageConfig.name,
-            message: severity + ': ' + error.name,
+            message: severity + ': ' + error.name||'webpack Error',
             subtitle: filename || '',
             icon: path.join(__dirname, 'logo.png')
         })

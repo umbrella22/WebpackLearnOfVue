@@ -17,6 +17,7 @@ module.exports = merge(common, {
     plugins: [
         new webpack.DefinePlugin({
             env: JSON.stringify(dev),
+            'process.tools': JSON.stringify({ mode: 'webpack' })
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
