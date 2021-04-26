@@ -23,7 +23,7 @@ module.exports = {
         cssSourceMap: true,
         openDevTools: true,
         // 是否使用vite代替webpack
-        useVite: false
+        useVite: true
     },
     //  对应build环境的快捷设置
     build: {
