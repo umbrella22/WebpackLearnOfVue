@@ -43,13 +43,6 @@ module.exports = {
             }]
         },
         {
-            test: /\.ts$/,
-            use: {
-                loader: 'babel-loader',
-            },
-            include: [resolve('src')]
-        },
-        {
             test: /\.(gif|png|jpe?g|svg)$/,
             type: "asset/resource",
             generator: {

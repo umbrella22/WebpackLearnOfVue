@@ -9,7 +9,16 @@ const dev = require('../config/dev.env')
 module.exports = merge(common, {
     mode: "development",
     module: {
-        rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+        rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true }).concat({
+            // 衔接ts处理
+            test: /\.ts$/,
+            use: [{
+                loader: 'esbuild-loader',
+                options: {
+                    loader: 'tsx',
+                }
+            }]
+        })
     },
     output: {
         filename: '[name].js',
