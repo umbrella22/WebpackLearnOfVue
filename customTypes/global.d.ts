@@ -5,3 +5,8 @@ declare namespace NodeJS {
         };
     }
 }
+
+interface ImportMeta {
+    env: Record<string, unknown>;
+    glob<T = unknown>(globPath: string): Record<string, T>;
+}
