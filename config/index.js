@@ -13,6 +13,7 @@ module.exports = {
         // 这是设置的是局域网和本地都可以访问
         host: '0.0.0.0',
         // 端口号
+        
         port: 8080,
         // 是否自动打开浏览器
         autoOpenBrowser: false,
