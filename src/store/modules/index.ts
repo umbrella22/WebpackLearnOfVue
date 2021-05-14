@@ -14,11 +14,11 @@ if (process.tools.mode === 'webpack') {
     modules[key.replace(/(\.\/|\.ts)/g, '')] = files(key).default
   })
 } else {
-  const files = import.meta.glob('./*.ts')
+  const files:Object = import.meta.globEager('./*.ts')
+  console.log(typeof files)
   Object.keys(files).forEach((key: string) => {
-    modules[key.replace(/(\.\/|\.ts)/g, '')] = files[key]
+    modules[key.replace(/(\.\/|\.ts)/g, '')] = files[key].default
   })
 }
-
 
 export default modules
