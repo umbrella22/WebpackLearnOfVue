@@ -5,7 +5,7 @@ const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinMizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const config = require('../config')
 const utils = require('./utils')
@@ -94,17 +94,13 @@ const options = merge(common, {
                     },
                 }
             }),
-            new OptimizeCssAssetsPlugin({
-                assetNameRegExp: /\.css$/g,
-                cssProcessorOptions: {
-                    safe: true,
-                    autoprefixer: { disable: true },
-                    mergeLonghand: false,
-                    discardComments: {
-                        removeAll: true // 移除注释
-                    }
+            new CssMinMizerPlugin({
+                parallel: true,
+                minimizerOptions: {
+                    preset: ['default', {
+                        discardComments: { removeAll: true },
+                    }],
                 },
-                canPrint: true
             })
         ]
     },
