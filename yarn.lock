@@ -5163,14 +5163,14 @@ postcss-import@^14.0.2:
     read-cache "^1.0.0"
     resolve "^1.1.7"
 
-postcss-loader@^5.3.0:
-  version "5.3.0"
-  resolved "https://registry.nlark.com/postcss-loader/download/postcss-loader-5.3.0.tgz#1657f869e48d4fdb018a40771c235e499ee26244"
-  integrity sha1-Flf4aeSNT9sBikB3HCNeSZ7iYkQ=
+postcss-loader@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.nlark.com/postcss-loader/download/postcss-loader-6.1.0.tgz#13c800a00b3c7d434a1319a73d85e2df0714cdde"
+  integrity sha1-E8gAoAs8fUNKExmnPYXi3wcUzd4=
   dependencies:
     cosmiconfig "^7.0.0"
     klona "^2.0.4"
-    semver "^7.3.4"
+    semver "^7.3.5"
 
 postcss-merge-longhand@^5.0.2:
   version "5.0.2"
@@ -5428,10 +5428,19 @@ postcss@^8.2.15:
     nanoid "^3.1.23"
     source-map "^0.6.1"
 
-postcss@^8.2.9, postcss@^8.3.0, postcss@^8.3.1:
+postcss@^8.2.9, postcss@^8.3.0:
   version "8.3.1"
   resolved "https://registry.nlark.com/postcss/download/postcss-8.3.1.tgz#71f380151c227f83b898294a46481f689f86b70a"
   integrity sha1-cfOAFRwif4O4mClKRkgfaJ+Gtwo=
+  dependencies:
+    colorette "^1.2.2"
+    nanoid "^3.1.23"
+    source-map-js "^0.6.2"
+
+postcss@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.nlark.com/postcss/download/postcss-8.3.2.tgz#ed3ec489f5428af5740cd6effcc216b4d455ee64"
+  integrity sha1-7T7EifVCivV0DNbv/MIWtNRV7mQ=
   dependencies:
     colorette "^1.2.2"
     nanoid "^3.1.23"
@@ -5845,10 +5854,10 @@ safe-regex@^1.1.0:
   resolved "https://registry.npm.taobao.org/safer-buffer/download/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
-sass-loader@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.nlark.com/sass-loader/download/sass-loader-12.0.0.tgz#ba91df5725cb9676c8e0937002a647ab011eb94a"
-  integrity sha1-upHfVyXLlnbI4JNwAqZHqwEeuUo=
+sass-loader@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.nlark.com/sass-loader/download/sass-loader-12.1.0.tgz#b73324622231009da6fba61ab76013256380d201"
+  integrity sha1-tzMkYiIxAJ2m+6Yat2ATJWOA0gE=
   dependencies:
     klona "^2.0.4"
     neo-async "^2.6.2"
@@ -5923,13 +5932,6 @@ semver@^6.0.0, semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   version "6.3.0"
   resolved "https://registry.npm.taobao.org/semver/download/semver-6.3.0.tgz?cache=0&sync_timestamp=1606852064928&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsemver%2Fdownload%2Fsemver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha1-7gpkyK9ejO6mdoexM3YeG+y9HT0=
-
-semver@^7.3.4:
-  version "7.3.4"
-  resolved "https://registry.npm.taobao.org/semver/download/semver-7.3.4.tgz?cache=0&sync_timestamp=1606852064928&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsemver%2Fdownload%2Fsemver-7.3.4.tgz#27aaa7d2e4ca76452f98d3add093a72c943edc97"
-  integrity sha1-J6qn0uTKdkUvmNOt0JOnLJQ+3Jc=
-  dependencies:
-    lru-cache "^6.0.0"
 
 semver@^7.3.5:
   version "7.3.5"
