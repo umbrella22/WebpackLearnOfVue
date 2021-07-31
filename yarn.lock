@@ -1301,6 +1301,11 @@
   resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha1-9MfsQ+gbMZqYFRFQMXCfJph4kfA=
 
+"@types/json-schema@^7.0.8":
+  version "7.0.8"
+  resolved "https://registry.nlark.com/@types/json-schema/download/@types/json-schema-7.0.8.tgz#edf1bf1dbf4e04413ca8e5b17b3b7d7d54b59818"
+  integrity sha1-7fG/Hb9OBEE8qOWxezt9fVS1mBg=
+
 "@types/mime@*":
   version "2.0.3"
   resolved "https://registry.npm.taobao.org/@types/mime/download/@types/mime-2.0.3.tgz?cache=0&sync_timestamp=1605054613280&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fmime%2Fdownload%2F%40types%2Fmime-2.0.3.tgz#c893b73721db73699943bfc3653b1deb7faa4a3a"
@@ -1719,6 +1724,11 @@ ansi-regex@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npm.taobao.org/ansi-regex/download/ansi-regex-5.0.0.tgz#388539f55179bf39339c81af30a654d69f87cb75"
   integrity sha1-OIU59VF5vzkznIGvMKZU1p+Hy3U=
+
+ansi-regex@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.nlark.com/ansi-regex/download/ansi-regex-6.0.0.tgz#ecc7f5933cbe5ac7b33e209a5ff409ab1669c6b2"
+  integrity sha1-7Mf1kzy+WsezPiCaX/QJqxZpxrI=
 
 ansi-styles@^2.2.1:
   version "2.2.1"
@@ -2746,6 +2756,11 @@ defaults@^1.0.3:
   dependencies:
     clone "^1.0.2"
 
+define-lazy-prop@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/define-lazy-prop/download/define-lazy-prop-2.0.0.tgz?cache=0&sync_timestamp=1618387627365&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdefine-lazy-prop%2Fdownload%2Fdefine-lazy-prop-2.0.0.tgz#3f7ae421129bcaaac9bc74905c98a0009ec9ee7f"
+  integrity sha1-P3rkIRKbyqrJvHSQXJigAJ7J7n8=
+
 define-properties@^1.1.3:
   version "1.1.3"
   resolved "https://registry.npm.taobao.org/define-properties/download/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
@@ -3715,10 +3730,10 @@ http-proxy-middleware@^1.0.0:
     is-plain-obj "^3.0.0"
     micromatch "^4.0.2"
 
-http-proxy-middleware@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.nlark.com/http-proxy-middleware/download/http-proxy-middleware-1.3.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fhttp-proxy-middleware%2Fdownload%2Fhttp-proxy-middleware-1.3.1.tgz#43700d6d9eecb7419bf086a128d0f7205d9eb665"
-  integrity sha1-Q3ANbZ7st0Gb8IahKND3IF2etmU=
+http-proxy-middleware@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.nlark.com/http-proxy-middleware/download/http-proxy-middleware-2.0.1.tgz#7ef3417a479fb7666a571e09966c66a39bd2c15f"
+  integrity sha1-fvNBekeft2ZqVx4Jlmxmo5vSwV8=
   dependencies:
     "@types/http-proxy" "^1.17.5"
     http-proxy "^1.18.1"
@@ -3850,7 +3865,7 @@ ipaddr.js@1.9.1, ipaddr.js@^1.9.1:
   resolved "https://registry.npm.taobao.org/ipaddr.js/download/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
   integrity sha1-v/OFQ+64mEglB5/zoqjmy9RngbM=
 
-ipaddr.js@^2.0.0:
+ipaddr.js@^2.0.1:
   version "2.0.1"
   resolved "https://registry.nlark.com/ipaddr.js/download/ipaddr.js-2.0.1.tgz#eca256a7a877e917aeb368b0a7497ddf42ef81c0"
   integrity sha1-7KJWp6h36Reus2iwp0l930LvgcA=
@@ -3970,6 +3985,11 @@ is-docker@^2.0.0:
   version "2.1.1"
   resolved "https://registry.npm.taobao.org/is-docker/download/is-docker-2.1.1.tgz#4125a88e44e450d384e09047ede71adc2d144156"
   integrity sha1-QSWojkTkUNOE4JBH7eca3C0UQVY=
+
+is-docker@^2.1.1:
+  version "2.2.1"
+  resolved "https://registry.nlark.com/is-docker/download/is-docker-2.2.1.tgz#33eeabe23cfe86f14bde4408a02c0cfb853acdaa"
+  integrity sha1-M+6r4jz+hvFL3kQIoCwM+4U6zao=
 
 is-extendable@^0.1.0, is-extendable@^0.1.1:
   version "0.1.1"
@@ -4104,7 +4124,7 @@ is-windows@^1.0.2:
   resolved "https://registry.npm.taobao.org/is-windows/download/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
   integrity sha1-0YUOuXkezRjmGCzhKjDzlmNLsZ0=
 
-is-wsl@^2.1.1, is-wsl@^2.2.0:
+is-wsl@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npm.taobao.org/is-wsl/download/is-wsl-2.2.0.tgz#74a4c76e77ca9fd3f932f290c17ea326cd157271"
   integrity sha1-dKTHbnfKn9P5MvKQwX6jJs0VcnE=
@@ -4491,10 +4511,10 @@ mime-db@1.44.0:
   resolved "https://registry.npm.taobao.org/mime-db/download/mime-db-1.44.0.tgz?cache=0&sync_timestamp=1600831210195&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmime-db%2Fdownload%2Fmime-db-1.44.0.tgz#fa11c5eb0aca1334b4233cb4d52f10c5a6272f92"
   integrity sha1-+hHF6wrKEzS0Izy01S8QxaYnL5I=
 
-mime-db@1.48.0:
-  version "1.48.0"
-  resolved "https://registry.nlark.com/mime-db/download/mime-db-1.48.0.tgz?cache=0&sync_timestamp=1622433556078&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmime-db%2Fdownload%2Fmime-db-1.48.0.tgz#e35b31045dd7eada3aaad537ed88a33afbef2d1d"
-  integrity sha1-41sxBF3X6to6qtU37YijOvvvLR0=
+mime-db@1.49.0:
+  version "1.49.0"
+  resolved "https://registry.nlark.com/mime-db/download/mime-db-1.49.0.tgz#f3dfde60c99e9cf3bc9701d687778f537001cbed"
+  integrity sha1-89/eYMmenPO8lwHWh3ePU3ABy+0=
 
 "mime-db@>= 1.43.0 < 2":
   version "1.45.0"
@@ -4508,12 +4528,12 @@ mime-types@^2.1.12, mime-types@^2.1.27, mime-types@~2.1.17, mime-types@~2.1.19, 
   dependencies:
     mime-db "1.44.0"
 
-mime-types@^2.1.30:
-  version "2.1.31"
-  resolved "https://registry.nlark.com/mime-types/download/mime-types-2.1.31.tgz#a00d76b74317c61f9c2db2218b8e9f8e9c5c9e6b"
-  integrity sha1-oA12t0MXxh+cLbIhi46fjpxcnms=
+mime-types@^2.1.31:
+  version "2.1.32"
+  resolved "https://registry.nlark.com/mime-types/download/mime-types-2.1.32.tgz?cache=0&sync_timestamp=1627407652875&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmime-types%2Fdownload%2Fmime-types-2.1.32.tgz#1d00e89e7de7fe02008db61001d9e02852670fd5"
+  integrity sha1-HQDonn3n/gIAjbYQAdngKFJnD9U=
   dependencies:
-    mime-db "1.48.0"
+    mime-db "1.49.0"
 
 mime@1.6.0:
   version "1.6.0"
@@ -4807,13 +4827,14 @@ onetime@^5.1.0, onetime@^5.1.2:
   dependencies:
     mimic-fn "^2.1.0"
 
-open@^7.4.2:
-  version "7.4.2"
-  resolved "https://registry.nlark.com/open/download/open-7.4.2.tgz#b8147e26dcf3e426316c730089fd71edd29c2321"
-  integrity sha1-uBR+Jtzz5CYxbHMAif1x7dKcIyE=
+open@^8.0.9:
+  version "8.2.1"
+  resolved "https://registry.nlark.com/open/download/open-8.2.1.tgz#82de42da0ccbf429bc12d099dad2e0975e14e8af"
+  integrity sha1-gt5C2gzL9Cm8EtCZ2tLgl14U6K8=
   dependencies:
-    is-docker "^2.0.0"
-    is-wsl "^2.1.1"
+    define-lazy-prop "^2.0.0"
+    is-docker "^2.1.1"
+    is-wsl "^2.2.0"
 
 ora@^5.4.1:
   version "5.4.1"
@@ -5796,6 +5817,15 @@ schema-utils@^3.0.0:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
+schema-utils@^3.1.0:
+  version "3.1.1"
+  resolved "https://registry.nlark.com/schema-utils/download/schema-utils-3.1.1.tgz?cache=0&sync_timestamp=1626694740261&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fschema-utils%2Fdownload%2Fschema-utils-3.1.1.tgz#bc74c4b6b6995c1d88f76a8b77bea7219e0c8281"
+  integrity sha1-vHTEtraZXB2I92qLd76nIZ4MgoE=
+  dependencies:
+    "@types/json-schema" "^7.0.8"
+    ajv "^6.12.5"
+    ajv-keywords "^3.5.2"
+
 scp2@^0.5.0:
   version "0.5.0"
   resolved "https://registry.npm.taobao.org/scp2/download/scp2-0.5.0.tgz#64ee74bc3685f3a4c6290f2da8c1e3b4eef92e8d"
@@ -6235,6 +6265,13 @@ strip-ansi@^6.0.0:
   integrity sha1-CxVx3XZpzNTz4G4U7x7tJiJa5TI=
   dependencies:
     ansi-regex "^5.0.0"
+
+strip-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npm.taobao.org/strip-ansi/download/strip-ansi-7.0.0.tgz?cache=0&sync_timestamp=1618553388833&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstrip-ansi%2Fdownload%2Fstrip-ansi-7.0.0.tgz#1dc49b980c3a4100366617adac59327eefdefcb0"
+  integrity sha1-HcSbmAw6QQA2ZhetrFkyfu/e/LA=
+  dependencies:
+    ansi-regex "^6.0.0"
 
 strip-final-newline@^2.0.0:
   version "2.0.0"
@@ -6685,22 +6722,22 @@ webpack-cli@^4.7.2:
     v8-compile-cache "^2.2.0"
     webpack-merge "^5.7.3"
 
-webpack-dev-middleware@^4.1.0:
-  version "4.3.0"
-  resolved "https://registry.nlark.com/webpack-dev-middleware/download/webpack-dev-middleware-4.3.0.tgz#179cc40795882cae510b1aa7f3710cbe93c9333e"
-  integrity sha1-F5zEB5WILK5RCxqn83EMvpPJMz4=
+webpack-dev-middleware@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.nlark.com/webpack-dev-middleware/download/webpack-dev-middleware-5.0.0.tgz?cache=0&sync_timestamp=1622642128013&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwebpack-dev-middleware%2Fdownload%2Fwebpack-dev-middleware-5.0.0.tgz#0abe825275720e0a339978aea5f0b03b140c1584"
+  integrity sha1-Cr6CUnVyDgozmXiupfCwOxQMFYQ=
   dependencies:
     colorette "^1.2.2"
     mem "^8.1.1"
     memfs "^3.2.2"
-    mime-types "^2.1.30"
+    mime-types "^2.1.31"
     range-parser "^1.2.1"
     schema-utils "^3.0.0"
 
-webpack-dev-server@^4.0.0-beta.3:
-  version "4.0.0-beta.3"
-  resolved "https://registry.nlark.com/webpack-dev-server/download/webpack-dev-server-4.0.0-beta.3.tgz#57368679f7f1fdd7ec8d9dd287275117271164f0"
-  integrity sha1-VzaGeffx/dfsjZ3ShydRFycRZPA=
+webpack-dev-server@^4.0.0-rc.0:
+  version "4.0.0-rc.0"
+  resolved "https://registry.nlark.com/webpack-dev-server/download/webpack-dev-server-4.0.0-rc.0.tgz?cache=0&sync_timestamp=1626726309385&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwebpack-dev-server%2Fdownload%2Fwebpack-dev-server-4.0.0-rc.0.tgz#56099f1e1e877d15a1fc28a928f38bbc600e33da"
+  integrity sha1-VgmfHh6HfRWh/CipKPOLvGAOM9o=
   dependencies:
     ansi-html "^0.0.7"
     bonjour "^3.5.0"
@@ -6709,26 +6746,25 @@ webpack-dev-server@^4.0.0-beta.3:
     connect-history-api-fallback "^1.6.0"
     del "^6.0.0"
     express "^4.17.1"
-    find-cache-dir "^3.3.1"
     graceful-fs "^4.2.6"
     html-entities "^2.3.2"
-    http-proxy-middleware "^1.3.1"
+    http-proxy-middleware "^2.0.0"
     internal-ip "^6.2.0"
-    ipaddr.js "^2.0.0"
+    ipaddr.js "^2.0.1"
     is-absolute-url "^3.0.3"
     killable "^1.0.1"
-    open "^7.4.2"
+    open "^8.0.9"
     p-retry "^4.5.0"
     portfinder "^1.0.28"
-    schema-utils "^3.0.0"
+    schema-utils "^3.1.0"
     selfsigned "^1.10.11"
     serve-index "^1.9.1"
     sockjs "^0.3.21"
     spdy "^4.0.2"
-    strip-ansi "^6.0.0"
+    strip-ansi "^7.0.0"
     url "^0.11.0"
-    webpack-dev-middleware "^4.1.0"
-    ws "^7.4.5"
+    webpack-dev-middleware "^5.0.0"
+    ws "^7.5.3"
 
 webpack-merge@^5.7.3:
   version "5.7.3"
@@ -6845,10 +6881,10 @@ wrappy@1:
   resolved "https://registry.npm.taobao.org/wrappy/download/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
-ws@^7.4.5:
-  version "7.5.0"
-  resolved "https://registry.nlark.com/ws/download/ws-7.5.0.tgz#0033bafea031fb9df041b2026fc72a571ca44691"
-  integrity sha1-ADO6/qAx+53wQbICb8cqVxykRpE=
+ws@^7.5.3:
+  version "7.5.3"
+  resolved "https://registry.nlark.com/ws/download/ws-7.5.3.tgz?cache=0&sync_timestamp=1627496096076&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fws%2Fdownload%2Fws-7.5.3.tgz#160835b63c7d97bfab418fc1b8a9fced2ac01a74"
+  integrity sha1-Fgg1tjx9l7+rQY/BuKn87SrAGnQ=
 
 xxhashjs@~0.2.2:
   version "0.2.2"
