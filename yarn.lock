@@ -6743,10 +6743,10 @@ vite@^2.4.4:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vue-loader@16.3.0:
-  version "16.3.0"
-  resolved "https://registry.nlark.com/vue-loader/download/vue-loader-16.3.0.tgz#2f195e4ba0fb0e263596d6830df17d1a36e8936c"
-  integrity sha1-LxleS6D7DiY1ltaDDfF9Gjbok2w=
+vue-loader@^16.4.1:
+  version "16.4.1"
+  resolved "https://registry.nlark.com/vue-loader/download/vue-loader-16.4.1.tgz?cache=0&sync_timestamp=1627919979593&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-loader%2Fdownload%2Fvue-loader-16.4.1.tgz#e09cfaa67b23a50021ecdb5c272203d2c87f161a"
+  integrity sha1-4Jz6pnsjpQAh7NtcJyID0sh/Fho=
   dependencies:
     chalk "^4.1.0"
     hash-sum "^2.0.0"
