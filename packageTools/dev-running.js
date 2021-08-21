@@ -26,6 +26,8 @@ const DevServerConfig = {
     compress: false,
     // 设置webpack热加载地址
     host: HOST || config.dev.host,
+    // 设置dev-server监听的端口
+    port: config.dev.port,
     // 设置是否自动打开浏览器
     open: config.dev.autoOpenBrowser,
     // // 当编译器出现错误时，在全屏覆盖显示错误位置
@@ -73,10 +75,11 @@ function statr() {
                         ? utils.createNotifierCallback()
                         : undefined
                 }))
+                DevServerConfig.port = port
                 // WebpackDevServer.addDevServerEntrypoints(webpackConfig, DevServerConfig);
                 const compiler = webpack(webpackConfig)
-                const server = new WebpackDevServer(compiler, DevServerConfig)
-                server.listen(port)
+                const server = new WebpackDevServer(DevServerConfig, compiler)
+                server.start()
             }
 
         }
