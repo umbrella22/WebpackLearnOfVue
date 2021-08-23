@@ -10,7 +10,7 @@
 <script lang="ts">
 // 这里使用的optionAPI和原来的vue2完全没有任何区别，这里仅仅只是做展示
 import { mapGetters, useStore } from "vuex";
-import { computed, defineComponent } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   // 这是使用了组合式api
@@ -37,5 +37,4 @@ export default defineComponent({
   },
 });
 </script>
-<style rel='stylesheet/scss' lang='scss' scoped>
-</style>
+<style rel="stylesheet/scss" lang="scss" scoped></style>
