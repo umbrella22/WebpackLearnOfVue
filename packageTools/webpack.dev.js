@@ -35,7 +35,6 @@ module.exports = merge(common, {
             inject: 'body',
             hash: true
         }),
-        new webpack.HotModuleReplacementPlugin()
     ],
     devtool: config.dev.devtool
 });

@@ -17,10 +17,8 @@ module.exports = {
         port: 8080,
         // 是否自动打开浏览器
         autoOpenBrowser: false,
-        errorOverlay: true,
         // 是否使用系统提示弹出错误简略信息
         notifyOnErrors: true,
-        poll: false,
         cssSourceMap: true,
         openDevTools: true,
         // 是否使用vite代替webpack

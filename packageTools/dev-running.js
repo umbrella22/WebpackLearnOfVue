@@ -16,12 +16,8 @@ const viteConifg = require("./vite.config")
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 const DevServerConfig = {
-    // clientLogLevel: 'warning',
     // 当使用history出现404时则自动调回index页
     historyApiFallback: true,
-    // contentBase: path.join(__dirname, "../dist"),
-    // 热加载模式
-    hot: true,
     // 启用gzip
     compress: false,
     // 设置webpack热加载地址
@@ -30,18 +26,8 @@ const DevServerConfig = {
     port: config.dev.port,
     // 设置是否自动打开浏览器
     open: config.dev.autoOpenBrowser,
-    // // 当编译器出现错误时，在全屏覆盖显示错误位置
-    // overlay: config.dev.errorOverlay
-    //     ? { warnings: false, errors: true }
-    //     : false,
     // 从config文件中读取端口代理设置
     proxy: config.dev.proxyTable,
-    // // 启用简洁报错
-    // quiet: true,
-    // // 启用监听文件变化
-    // watchOptions: {
-    //     poll: config.dev.poll,
-    // }
 }
 const viteDevConfig = {
     server: {
