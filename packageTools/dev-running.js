@@ -1,13 +1,10 @@
 const chalk = require('chalk')
-const path = require('path')
 const webpack = require('webpack')
 const Portfinder = require("portfinder")
 const WebpackDevServer = require('webpack-dev-server')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { createServer } = require('vite')
 
 
-const utils = require('./utils')
 const config = require('../config')
 const webpackConfig = require('./webpack.dev')
 const viteConifg = require("./vite.config")
@@ -31,7 +28,7 @@ const DevServerConfig = {
 }
 const viteDevConfig = {
     server: {
-        // 设置webpack热加载地址
+        // 设置vite服务地址
         host: HOST || config.dev.host,
         // 设置是否自动打开浏览器
         open: config.dev.autoOpenBrowser,
@@ -53,16 +50,17 @@ function statr() {
                 const viteAllConfig = Object.assign(viteConifg, viteDevConfig)
                 viteAllConfig.server.port = port
                 const server = await createServer(viteAllConfig)
-                server.listen(port)
+                await server.listen(port)
+                server.config.logger.info(
+                    chalk.cyan(`\n  vite v${require('vite/package.json').version}`) +
+                    chalk.green(` dev server running at:\n`),
+                    {
+                        clear: !server.config.logger.hasWarned,
+                    }
+                )
+                server.printUrls()
             } else {
-                webpackConfig.plugins.push(new FriendlyErrorsPlugin({
-                    compilationSuccessInfo: {},
-                    onErrors: config.dev.notifyOnErrors
-                        ? utils.createNotifierCallback()
-                        : undefined
-                }))
                 DevServerConfig.port = port
-                // WebpackDevServer.addDevServerEntrypoints(webpackConfig, DevServerConfig);
                 const compiler = webpack(webpackConfig)
                 const server = new WebpackDevServer(DevServerConfig, compiler)
                 server.start()

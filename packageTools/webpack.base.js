@@ -43,6 +43,24 @@ module.exports = {
             }]
         },
         {
+            test: /\.ts$/,
+            use: [{
+                loader: 'esbuild-loader',
+                options: {
+                    loader: 'ts',
+                }
+            }]
+        },
+        {
+            test: /\.js$/,
+            use: [{
+                loader: 'esbuild-loader',
+                options: {
+                    loader: 'js',
+                }
+            }]
+        },
+        {
             test: /\.(gif|png|jpe?g|svg)$/,
             type: "asset/resource",
             generator: {

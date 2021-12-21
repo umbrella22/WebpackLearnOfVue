@@ -23,15 +23,6 @@ const options = merge(common, {
             extract: true,
             // 是否使用postcss-loader添加浏览器前缀
             usePostCSS: true
-        }).concat({
-            // 衔接ts处理
-            test: /\.ts$/,
-            use: [{
-                loader: 'babel-loader',
-                options: {
-                    cacheDirectory: true
-                }
-            }]
         })
     },
     optimization: {
