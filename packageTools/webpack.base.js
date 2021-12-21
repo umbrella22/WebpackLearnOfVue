@@ -9,6 +9,7 @@ const webpack = require('webpack');
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
+console.log(path.resolve(path.join(__dirname, 'vueJsxFactory.js')))
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
@@ -23,7 +24,7 @@ module.exports = {
             : config.dev.assetsPublicPath
     },
     resolve: {
-        extensions: ['.ts', '.js', '.vue', '.json'],
+        extensions: ['.vue', '.ts', '.js', '.jsx', '.tsx', '.json'],
         alias: {
             '@': resolve('src'),
         }
@@ -33,30 +34,16 @@ module.exports = {
             test: /\.vue$/,
             use: [{
                 loader: 'vue-loader',
-                options: {
-                    babelParserPlugins: [
-                        'jsx',
-                        'classProperties',
-                        'decorators-legacy'
-                    ]
-                }
             }]
         },
         {
-            test: /\.ts$/,
+            test: /\.(tsx|jsx|ts|js)$/,
             use: [{
                 loader: 'esbuild-loader',
                 options: {
-                    loader: 'ts',
-                }
-            }]
-        },
-        {
-            test: /\.js$/,
-            use: [{
-                loader: 'esbuild-loader',
-                options: {
-                    loader: 'js',
+                    loader: 'tsx',
+                    jsxFactory: 'h',
+                    jsxFragment: 'Fragment',
                 }
             }]
         },
@@ -93,6 +80,9 @@ module.exports = {
             '__VUE_PROD_DEVTOOLS__': process.env.NODE_ENV === 'production'
                 ? config.build.openDevTools
                 : config.dev.openDevTools
+        }),
+        new webpack.ProvidePlugin({
+            h: path.resolve(__dirname, 'vueJsxFactory.js')
         })
     ],
 };

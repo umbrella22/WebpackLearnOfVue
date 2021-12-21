@@ -23,6 +23,11 @@ const config = defineConfig({
         }
     },
     base: './',
+    esbuild: {
+        jsxFactory: 'h',
+        jsxFragment: 'Fragment',
+        jsxInject: `import { h } from 'vue'`
+    },
     build: {
         outDir: resolve('dist'),
         emptyOutDir: true
