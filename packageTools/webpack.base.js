@@ -42,8 +42,8 @@ module.exports = {
                 loader: 'esbuild-loader',
                 options: {
                     loader: 'tsx',
-                    jsxFactory: 'h',
-                    jsxFragment: 'Fragment',
+                    jsxFactory: 'vue.h',
+                    jsxFragment: 'vue.Fragment',
                 }
             }]
         },
@@ -82,7 +82,7 @@ module.exports = {
                 : config.dev.openDevTools
         }),
         new webpack.ProvidePlugin({
-            h: path.resolve(__dirname, 'vueJsxFactory.js')
+            vue: 'vue',
         })
     ],
 };

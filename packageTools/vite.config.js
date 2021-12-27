@@ -26,7 +26,7 @@ const config = defineConfig({
     esbuild: {
         jsxFactory: 'h',
         jsxFragment: 'Fragment',
-        jsxInject: `import { h } from 'vue'`
+        jsxInject: `import { h,Fragment } from 'vue'`
     },
     build: {
         outDir: resolve('dist'),

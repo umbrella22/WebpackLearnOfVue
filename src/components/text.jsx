@@ -7,7 +7,19 @@ const testComponent = defineComponent({
     },
   },
   setup(props) {
-    return () => <div>{props.text}</div>;
+    return () => (
+      <div>
+        <>
+          <div>{props.text}</div>
+          <div>{props.text}</div>
+          <div>{props.text}</div>
+        </>
+        <>
+          {" "}
+          <div>{props.text}</div>
+        </>
+      </div>
+    );
   },
 });
 
