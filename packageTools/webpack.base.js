@@ -37,7 +37,7 @@ module.exports = {
             }]
         },
         {
-            test: /\.(tsx|jsx|ts|js)$/,
+            test: /\.m?[jt]sx?$/,
             use: [{
                 loader: 'esbuild-loader',
                 options: {
@@ -79,7 +79,8 @@ module.exports = {
             '__VUE_OPTIONS_API__': true,
             '__VUE_PROD_DEVTOOLS__': process.env.NODE_ENV === 'production'
                 ? config.build.openDevTools
-                : config.dev.openDevTools
+                : config.dev.openDevTools,
+            'process.tools.mode': '"webpack"'
         }),
         new webpack.ProvidePlugin({
             vue: 'vue',
