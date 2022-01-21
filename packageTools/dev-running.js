@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const Portfinder = require("portfinder")
 const WebpackDevServer = require('webpack-dev-server')
 const { createServer } = require('vite')
+const { join } = require('path')
 
 
 const config = require('../config')
@@ -25,6 +26,10 @@ const DevServerConfig = {
     open: config.dev.autoOpenBrowser,
     // 从config文件中读取端口代理设置
     proxy: config.dev.proxyTable,
+    static: {
+        directory: join(__dirname, '..', 'static'),
+        publicPath: '/static/',
+    }
 }
 const viteDevConfig = {
     server: {

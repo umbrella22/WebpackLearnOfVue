@@ -1,11 +1,14 @@
 'use strict'
+const path = require('path')
 const webpack = require('webpack');
 const common = require('./webpack.base.js');
 const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
 const CssMinMizerPlugin = require('css-minimizer-webpack-plugin');
+const { ESBuildMinifyPlugin } = require('esbuild-loader')
 const TerserPlugin = require('terser-webpack-plugin');
 const config = require('../config')
 const utils = require('./utils')
@@ -50,40 +53,12 @@ const options = merge(common, {
         },
         runtimeChunk: { name: 'runtime' },
         minimizer: [
-            new TerserPlugin({
-                test: /\.js(\?.*)?$/i,
-                // 是否开启多线程
-                // 在本实例中，该选项已被默认启动，所以可以去除
-                parallel: true,
-                // 将注释提取到一个文件中
-                // 本实例中默认开启，但是现在关闭了它
-                extractComments: false,
-                terserOptions: {
-                    warnings: false,
-                    // 去除打印
-                    compress: {
-                        hoist_funs: false,
-                        hoist_props: false,
-                        hoist_vars: false,
-                        inline: false,
-                        loops: false,
-                        dead_code: true,
-                        booleans: true,
-                        if_return: true,
-                        warnings: false,
-                        drop_console: true,
-                        drop_debugger: true,
-                        pure_funcs: ['console.log']
-                    },
-
-                    mangle: {
-                        safari10: true
-                    },
-                    // 去除注释，当设置为true时，会保留注释
-                    output: {
-                        comments: false,
-                    },
-                }
+            new ESBuildMinifyPlugin({
+                sourcemap: false,
+                minifyWhitespace: true,
+                minifyIdentifiers: true,
+                minifySyntax: true,
+                css: true
             }),
             new CssMinMizerPlugin({
                 parallel: true,
@@ -116,6 +91,17 @@ const options = merge(common, {
                 minifyJS: true,
                 minifyCSS: true
             }
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.join(__dirname, '../static'),
+                    to: path.join(__dirname, '../dist/static'),
+                    globOptions: {
+                        ignore: ['.*']
+                    }
+                }
+            ]
         }),
     ],
 });
