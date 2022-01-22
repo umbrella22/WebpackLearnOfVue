@@ -9,7 +9,6 @@ const webpack = require('webpack');
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
-console.log(path.resolve(path.join(__dirname, 'vueJsxFactory.js')))
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
