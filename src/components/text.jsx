@@ -15,7 +15,6 @@ const testComponent = defineComponent({
           <div>{props.text}</div>
         </>
         <>
-          {" "}
           <div>{props.text}</div>
         </>
       </div>

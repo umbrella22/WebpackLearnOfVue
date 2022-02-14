@@ -4,6 +4,7 @@ const Portfinder = require("portfinder")
 const WebpackDevServer = require('webpack-dev-server')
 const { createServer } = require('vite')
 const { join } = require('path')
+const { prompt } = require('inquirer')
 
 
 const config = require('../config')
@@ -43,36 +44,47 @@ const viteDevConfig = {
 
 }
 
-function statr() {
-    Portfinder.basePort = config.dev.port || PORT
-    Portfinder.getPort(async (err, port) => {
-        if (err) {
-            console.log(chalk.red('  启动失败，端口占用\n'))
-            console.log('PortError:', err)
-            process.exit(1)
-        } else {
-            if (config.dev.useVite) {
-                const viteAllConfig = Object.assign(viteConifg, viteDevConfig)
+async function statr() {
+    try {
+        Portfinder.basePort = config.dev.port || PORT
+        const port = await Portfinder.getPortPromise()
+        const Answers = await prompt([{
+            type: 'list',
+            message: '请选择编译引擎：',
+            name: 'compiler',
+            default: 'webpack',
+            choices: ['webpack', 'vite']
+        }])
+        switch (Answers.compiler) {
+            case 'webpack':
+                DevServerConfig.port = port
+                const compiler = webpack(webpackConfig)
+                const wepackServer = new WebpackDevServer(DevServerConfig, compiler)
+                wepackServer.start()
+                break;
+            case 'vite':
+                const viteAllConfig = Object.assign({}, viteConifg, viteDevConfig)
                 viteAllConfig.server.port = port
-                const server = await createServer(viteAllConfig)
-                await server.listen(port)
-                server.config.logger.info(
+                const viteServer = await createServer(viteAllConfig)
+                await viteServer.listen(port)
+                viteServer.config.logger.info(
                     chalk.cyan(`\n  vite v${require('vite/package.json').version}`) +
                     chalk.green(` dev server running at:\n`),
                     {
-                        clear: !server.config.logger.hasWarned,
+                        clear: !viteServer.config.logger.hasWarned,
                     }
                 )
-                server.printUrls()
-            } else {
-                DevServerConfig.port = port
-                const compiler = webpack(webpackConfig)
-                const server = new WebpackDevServer(DevServerConfig, compiler)
-                server.start()
-            }
-
+                viteServer.printUrls()
+                break;
+            default:
+                break;
         }
-    })
+
+    } catch (error) {
+        console.log(chalk.red('  启动失败，端口占用\n'))
+        console.log('PortError:', err)
+        process.exit(1)
+    }
 }
 
 statr()
