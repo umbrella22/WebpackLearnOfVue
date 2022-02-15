@@ -4,7 +4,7 @@
     <div>欢迎来到vue3全家桶+webpack5，嘛虽然有点简单。。不过只能慢慢来了</div>
     <div>这里是vuex的getter得到的值：{{ templateData }}</div>
     <div @click="setVuexData">点击一下我，就会修改上面的值啦~</div>
-    <text-box text="JSX组件( •̀ ω •́ )y" />
+    <text-box :number="0" text="JSX组件( •̀ ω •́ )y" />
   </div>
 </template>
 
