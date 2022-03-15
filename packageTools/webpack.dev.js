@@ -27,5 +27,9 @@ module.exports = merge(common, {
             hash: true
         }),
     ],
-    devtool: config.dev.devtool
+    devtool: config.dev.devtool,
+    stats: {
+        preset: 'errors-warnings',
+        colors: true,
+    }
 });

@@ -104,6 +104,13 @@ const options = merge(common, {
             ]
         }),
     ],
+    stats: {
+        preset: 'errors-only',
+        colors: true,
+        assets: true,
+        assetsSort: '!size',
+        groupAssetsByExtension: true,
+    }
 });
 // 当config中对应项为true时，启用打包分析
 if (config.build.bundleAnalyzerReport) {

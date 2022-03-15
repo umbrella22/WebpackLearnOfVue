@@ -10,6 +10,7 @@ function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
 module.exports = {
+    cache: true,
     context: path.resolve(__dirname, '../'),
     entry: {
         app: './src/main.ts'
@@ -73,7 +74,7 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new webpackbar({
-            name: "示例",
+            name: config.projectName,
         }),
         new webpack.DefinePlugin({
             '__VUE_OPTIONS_API__': true,

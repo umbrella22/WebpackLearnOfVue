@@ -2,6 +2,7 @@
 const path = require('path')
 
 module.exports = {
+    projectName:"示例",
     // 对应dev环境的快捷设置
     dev: {
         assetsSubDirectory: 'static',
