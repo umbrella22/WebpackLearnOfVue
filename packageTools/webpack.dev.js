@@ -28,8 +28,5 @@ module.exports = merge(common, {
         }),
     ],
     devtool: config.dev.devtool,
-    stats: {
-        preset: 'errors-warnings',
-        colors: true,
-    }
+    stats: 'none'
 });

@@ -61,6 +61,10 @@ async function statr() {
                 const compiler = webpack(webpackConfig)
                 const wepackServer = new WebpackDevServer(DevServerConfig, compiler)
                 wepackServer.start()
+                compiler.hooks.done.tap('done', () => {
+                    console.log(chalk.green('启动成功，请访问：'))
+                    console.log(chalk.green(`http://127.0.0.1:${DevServerConfig.port}`))
+                })
                 break;
             case 'vite':
                 const viteAllConfig = Object.assign({}, viteConifg, viteDevConfig)
@@ -82,7 +86,7 @@ async function statr() {
 
     } catch (error) {
         console.log(chalk.red('  启动失败，端口占用\n'))
-        console.log('PortError:', err)
+        console.log('PortError:', error)
         process.exit(1)
     }
 }

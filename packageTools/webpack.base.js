@@ -15,6 +15,9 @@ module.exports = {
     entry: {
         app: './src/main.ts'
     },
+    infrastructureLogging: {
+        level: 'warn'
+    },
     output: {
         filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
         chunkFilename: utils.assetsPath('js/[name].[chunkhash:8].bundle.js'),
@@ -75,6 +78,7 @@ module.exports = {
         new VueLoaderPlugin(),
         new webpackbar({
             name: config.projectName,
+            profile: true
         }),
         new webpack.DefinePlugin({
             '__VUE_OPTIONS_API__': true,
