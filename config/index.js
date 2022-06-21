@@ -1,14 +1,11 @@
 'use strict'
 const path = require('path')
-
 module.exports = {
-    projectName:"示例",
+    projectName: "示例",
     // 对应dev环境的快捷设置
     dev: {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        // 使用webpack进行端口代理，一般是用于跨域
-        proxyTable: {},
         // 使用什么devtools
         devtool: 'eval-source-map',
         // 这是设置的是局域网和本地都可以访问

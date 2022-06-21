@@ -6,14 +6,14 @@ const { createServer } = require('vite')
 const { join } = require('path')
 const { prompt } = require('inquirer')
 
+const { getConfig } = require('./utils')
 
 const config = require('../config')
 const webpackConfig = require('./webpack.dev')
 const viteConifg = require("./vite.config")
 
-
-const HOST = process.env.HOST
-const PORT = process.env.PORT && Number(process.env.PORT)
+const HOST = getConfig.HOST
+const PORT = getConfig.PORT && Number(getConfig.PORT)
 const DevServerConfig = {
     // 当使用history出现404时则自动调回index页
     historyApiFallback: true,
@@ -26,7 +26,12 @@ const DevServerConfig = {
     // 设置是否自动打开浏览器
     open: config.dev.autoOpenBrowser,
     // 从config文件中读取端口代理设置
-    proxy: config.dev.proxyTable,
+    proxy: {
+        [getConfig.API_PREFIX]: {
+            target: getConfig.API_HOST,
+            changeOrigin: true,
+        }
+    },
     static: {
         directory: join(__dirname, '..', 'static'),
         publicPath: '/static/',
@@ -39,7 +44,12 @@ const viteDevConfig = {
         // 设置是否自动打开浏览器
         open: config.dev.autoOpenBrowser,
         // 从config文件中读取端口代理设置
-        proxy: config.dev.proxyTable,
+        proxy: {
+            [getConfig.API_PREFIX]: {
+                target: getConfig.API_HOST,
+                changeOrigin: true,
+            }
+        },
     }
 
 }
@@ -57,6 +67,9 @@ async function statr() {
         }])
         switch (Answers.compiler) {
             case 'webpack':
+                webpackConfig.plugins.push(new webpack.DefinePlugin({
+                    'process.env': JSON.stringify(getConfig),
+                }))
                 DevServerConfig.port = port
                 const compiler = webpack(webpackConfig)
                 const wepackServer = new WebpackDevServer(DevServerConfig, compiler)
@@ -67,7 +80,12 @@ async function statr() {
                 })
                 break;
             case 'vite':
-                const viteAllConfig = Object.assign({}, viteConifg, viteDevConfig)
+                const viteAllConfig = Object.assign({}, viteConifg, viteDevConfig, {
+                    define: {
+                        'process.env': JSON.stringify(getConfig),
+                        'process.tools': JSON.stringify({ mode: 'vite' })
+                    }
+                })
                 viteAllConfig.server.port = port
                 const viteServer = await createServer(viteAllConfig)
                 await viteServer.listen(port)

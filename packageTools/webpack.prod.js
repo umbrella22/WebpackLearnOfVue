@@ -72,7 +72,7 @@ const options = merge(common, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': env
+            'process.env': JSON.stringify(utils.getConfig)
         }),
         new CleanWebpackPlugin(),
         new MiniCssPlugin({

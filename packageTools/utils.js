@@ -1,8 +1,22 @@
 'use strict'
 const path = require('path')
-const packageConfig = require('../package.json')
+const dotenv = require('dotenv')
 const config = require('../config')
 const MiniCssPlugin = require('mini-css-extract-plugin');
+const argv = require('minimist')(process.argv.slice(2));
+const rootResolve = (...pathSegments) => path.join(__dirname, '..', ...pathSegments)
+
+
+function getEnv() {
+    return argv['m']
+}
+function getConfig() {
+    return dotenv.config({ path: rootResolve(`env/${getEnv()}.env`) }).parsed
+}
+// 获取环境
+exports.getEnv = getEnv()
+// 获取配置
+exports.getConfig = getConfig()
 
 // 将资源文件合并到config文件中的配置项中
 exports.assetsPath = function (_path) {

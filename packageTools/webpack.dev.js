@@ -4,7 +4,6 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.base.js');
 const config = require("../config")
 const utils = require('./utils')
-const dev = require('../config/dev.env')
 
 module.exports = merge(common, {
     mode: "development",
@@ -16,7 +15,6 @@ module.exports = merge(common, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            env: JSON.stringify(dev),
             'process.tools': JSON.stringify({ mode: 'webpack' })
         }),
         new HtmlWebpackPlugin({
